@@ -1,5 +1,6 @@
 import 'package:admin_panal/pages/admin_panel.dart';
 import 'package:admin_panal/pages/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -27,6 +28,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: SignInPage());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: AuthWrapper());
+  }
+}
+
+class AuthWrapper extends StatelessWidget {
+  const AuthWrapper({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return AdminPanel(); // User is logged in
+        } else {
+          return SignInPage(); // User is not logged in
+        }
+      },
+    );
   }
 }
