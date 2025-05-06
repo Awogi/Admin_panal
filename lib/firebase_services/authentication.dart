@@ -22,12 +22,12 @@ class AuthenticationService {
         context: context,
         builder:
             (context) => AlertDialog(
-              title: const Text("Missing Fields"),
-              content: const Text("Please fill all the fields"),
+              title: Text("Missing Fields"),
+              content: Text("Please fill all the fields"),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: const Text("OK"),
+                  child: Text("OK"),
                 ),
               ],
             ),
@@ -40,14 +40,14 @@ class AuthenticationService {
         context: context,
         builder:
             (context) => AlertDialog(
-              title: const Text("Access Denied"),
-              content: const Text(
+              title: Text("Access Denied"),
+              content: Text(
                 "Unauthorized email. Only admin can access this panel.",
               ),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: const Text("OK"),
+                  child: Text("OK"),
                 ),
               ],
             ),
