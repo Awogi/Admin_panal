@@ -15,6 +15,8 @@ class FormContainer extends StatefulWidget {
   final TextInputType? inputType;
   final ValueChanged<String>? onfieldSubmitted;
   final Icon? prefixIcon;
+  final int widthLength=500;
+  final int heightLength=600;
 
   const FormContainer({
     super.key,
@@ -59,7 +61,7 @@ class _FormContainerState extends State<FormContainer> {
             hintStyle: TextStyle(
               color: const Color.fromARGB(123, 0, 0, 0),
               fontFamily: "Ubuntu",
-              fontSize: MediaQuery.of(context).size.width * 0.03,
+              fontSize: 15,
             ),
             prefixIcon: widget.prefixIcon,
             contentPadding: const EdgeInsets.symmetric(
@@ -70,7 +72,7 @@ class _FormContainerState extends State<FormContainer> {
             errorStyle: TextStyle(
               color: themegreydarker,
               fontFamily: "Ubuntu",
-              fontSize: MediaQuery.of(context).size.width * 0.03,
+              fontSize: 10,
             ),
             suffixIcon:
                 widget.isPasswordField == true
@@ -90,7 +92,7 @@ class _FormContainerState extends State<FormContainer> {
           style: TextStyle(
             color: Colors.black,
             fontFamily: "Ubuntu",
-            fontSize: MediaQuery.of(context).size.width * 0.03,
+            fontSize: 12,
           ),
         ),
       ),
