@@ -1,71 +1,61 @@
 import 'package:flutter/material.dart';
 
-class BachelorsQuestionsPage extends StatefulWidget {
+class DiplomaQuestionsPage extends StatefulWidget {
   @override
-  _BachelorsQuestionsPageState createState() => _BachelorsQuestionsPageState();
+  _DiplomaQuestionsPageState createState() => _DiplomaQuestionsPageState();
 }
 
-class _BachelorsQuestionsPageState extends State<BachelorsQuestionsPage> {
+class _DiplomaQuestionsPageState extends State<DiplomaQuestionsPage> {
   Map<String, bool> subjectExpansion = {
     'Pharmacology': true,
-    'Pharmacokinetics': false,
-    'Drug Interactions': false,
-    'Therapeutics': false,
+    'Pharmaceutical Care': false,
+    'Clinical Pharmacy': false,
+    'Community Pharmacy': false,
   };
 
   Map<String, List<Map<String, dynamic>>> questionsBySubject = {
     'Pharmacology': [
       {
         'id': 1,
-        'question': 'Which of the following is the primary mechanism of action for ACE inhibitors?',
-        'options': [
-          'Block angiotensin converting enzyme',
-          'Block calcium channels',
-          'Block beta-adrenergic receptors',
-          'Block sodium channels'
-        ],
+        'question': 'Which of the following is a common side effect of ACE inhibitors?',
+        'options': ['Dry cough', 'Diarrhea', 'Headache', 'Nausea'],
         'correctAnswer': 0,
         'subject': 'Pharmacology',
         'difficulty': 'Medium',
-        'createdDate': '2024-01-15'
-      }
-    ],
-    'Pharmacokinetics': [
-      {
-        'id': 2,
-        'question': 'Calculate the bioavailability of a drug with the following parameters: AUC oral = 100 mg*h/L, AUC IV = 150 mg*h/L',
-        'options': ['66.7%', '75%', '80%', '90%'],
-        'correctAnswer': 0,
-        'subject': 'Pharmacokinetics',
-        'difficulty': 'Hard',
         'createdDate': '2024-01-13'
       }
     ],
-    'Drug Interactions': [
+    'Pharmaceutical Care': [
       {
-        'id': 3,
-        'question': 'Identify the drug interaction between warfarin and aspirin',
-        'options': [
-          'Increased bleeding risk',
-          'Decreased warfarin effect',
-          'No significant interaction',
-          'Increased clotting'
-        ],
+        'id': 2,
+        'question': 'What is the recommended storage temperature for insulin?',
+        'options': ['2-8°C', '15-25°C', '25-30°C', 'Room temperature'],
         'correctAnswer': 0,
-        'subject': 'Drug Interactions',
-        'difficulty': 'Hard',
-        'createdDate': '2024-01-11'
+        'subject': 'Pharmaceutical Care',
+        'difficulty': 'Easy',
+        'createdDate': '2024-01-14'
       }
     ],
-    'Therapeutics': [
+    'Clinical Pharmacy': [
+      {
+        'id': 3,
+        'question': 'What are the contraindications for beta-blockers?',
+        'options': ['Asthma', 'Hypertension', 'Tachycardia', 'Angina'],
+        'correctAnswer': 0,
+        'subject': 'Clinical Pharmacy',
+        'difficulty': 'Medium',
+        'createdDate': '2024-01-12'
+      }
+    ],
+    'Community Pharmacy': [
       {
         'id': 4,
-        'question': 'What is the first-line treatment for Type 2 diabetes mellitus?',
-        'options': ['Insulin', 'Metformin', 'Sulfonylureas', 'DPP-4 inhibitors'],
-        'correctAnswer': 1,
-        'subject': 'Therapeutics',
-        'difficulty': 'Medium',
-        'createdDate': '2024-01-09'
+        'question': 'Which dosage form has the fastest onset of action?',
+        'options': ['Tablets', 'Capsules', 'Injections', 'Topical'],
+        'correctAnswer': 2,
+        'subject': 'Community Pharmacy',
+        'difficulty': 'Easy',
+        'createdDate': '2024-01-10'
       }
     ],
   };
@@ -93,7 +83,7 @@ class _BachelorsQuestionsPageState extends State<BachelorsQuestionsPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Bachelors Questions Management',
+                      'Diploma Questions Management',
                       style: TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
@@ -103,7 +93,7 @@ class _BachelorsQuestionsPageState extends State<BachelorsQuestionsPage> {
                     ),
                     SizedBox(height: 4),
                     Text(
-                      'Manage questions for Bachelors level students',
+                      'Manage questions for Diploma level students',
                       style: TextStyle(
                         fontSize: 16,
                         color: Color(0xFF64748B),
@@ -117,9 +107,9 @@ class _BachelorsQuestionsPageState extends State<BachelorsQuestionsPage> {
                     // Add new question logic
                   },
                   icon: Icon(Icons.add),
-                  label: Text('Add Bachelors Question'),
+                  label: Text('Add Question'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFF59E0B),
+                    backgroundColor: Color(0xFF14B8A6),
                     foregroundColor: Colors.white,
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                   ),
@@ -136,7 +126,7 @@ class _BachelorsQuestionsPageState extends State<BachelorsQuestionsPage> {
                     'Total Questions',
                     '${allQuestions.length}',
                     Icons.quiz,
-                    Color(0xFFF59E0B),
+                    Color(0xFF14B8A6),
                   ),
                 ),
                 SizedBox(width: 16),
@@ -192,7 +182,7 @@ class _BachelorsQuestionsPageState extends State<BachelorsQuestionsPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Manage practice questions for Bachelors level students',
+                          'Manage practice questions for Diploma level students',
                           style: TextStyle(
                             fontSize: 16,
                             color: Color(0xFF64748B),
@@ -225,7 +215,7 @@ class _BachelorsQuestionsPageState extends State<BachelorsQuestionsPage> {
                             ),
                             child: TextField(
                               decoration: InputDecoration(
-                                hintText: 'Search bachelors questions...',
+                                hintText: 'Search diploma questions...',
                                 hintStyle: TextStyle(
                                   color: Color(0xFF64748B),
                                   fontSize: 14,
@@ -366,7 +356,7 @@ class _BachelorsQuestionsPageState extends State<BachelorsQuestionsPage> {
                     child: Text(
                       'Select All (${questions.length})',
                       style: TextStyle(
-                        color: Color(0xFFF59E0B),
+                        color: Color(0xFF14B8A6),
                         fontFamily: "Ubuntu",
                       ),
                     ),
@@ -389,7 +379,7 @@ class _BachelorsQuestionsPageState extends State<BachelorsQuestionsPage> {
                     icon: Icon(Icons.add, size: 16),
                     label: Text('Add to $subject'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFF59E0B),
+                      backgroundColor: Color(0xFF14B8A6),
                       foregroundColor: Colors.white,
                       padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                       minimumSize: Size(0, 32),
@@ -423,7 +413,7 @@ class _BachelorsQuestionsPageState extends State<BachelorsQuestionsPage> {
             onChanged: (bool? value) {
               // Handle selection
             },
-            activeColor: Color(0xFFF59E0B),
+            activeColor: Color(0xFF14B8A6),
           ),
           SizedBox(width: 12),
           Expanded(
@@ -442,7 +432,7 @@ class _BachelorsQuestionsPageState extends State<BachelorsQuestionsPage> {
                     ),
                     SizedBox(width: 8),
                     Text(
-                      '• Bachelors Level',
+                      '• Diploma Level',
                       style: TextStyle(
                         fontSize: 12,
                         color: Color(0xFF64748B),

@@ -1,4 +1,4 @@
-import 'package:admin_panal/pages/admin_panel.dart';
+import 'package:admin_panal/pages/pharmacy_mcq_dashboard.dart';
 import 'package:admin_panal/pages/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -41,7 +41,7 @@ class AuthWrapper extends StatelessWidget {
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return AdminPanel(); // User is logged in
+          return PharmacyDashboard(); // User is logged in
         } else {
           return SignInPage(); // User is not logged in
         }

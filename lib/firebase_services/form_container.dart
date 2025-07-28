@@ -92,7 +92,7 @@ class _FormContainerState extends State<FormContainer> {
           style: TextStyle(
             color: Colors.black,
             fontFamily: "Ubuntu",
-            fontSize: 12,
+            fontSize: 16,
           ),
         ),
       ),
